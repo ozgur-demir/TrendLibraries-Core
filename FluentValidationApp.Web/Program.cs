@@ -1,3 +1,4 @@
+using FluentValidation.AspNetCore;
 using FluentValidationApp.Web.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
@@ -5,7 +6,10 @@ using System.Reflection;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddFluentValidation(options =>
+{
+    options.RegisterValidatorsFromAssemblyContaining<Program>();
+});
 builder.Services.AddDbContext<AppDbContext>(x => {
 
     x.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"), option =>
@@ -14,6 +18,7 @@ builder.Services.AddDbContext<AppDbContext>(x => {
 
     });
 });
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
