@@ -17,8 +17,11 @@ namespace FluentValidationApp.Web.FluentValidators
             {
                 return DateTime.Now.AddYears(-18) >= x;
             }).WithMessage("Your age must be grater than 18");
-
+            RuleFor(x => x.Gender).IsInEnum().WithMessage("{PropertyName} field must 1 for male, 2 for female");
+            
             RuleForEach(x => x.Addresses).SetValidator(new AddressValidator());
+
+
         }
     }
 }
