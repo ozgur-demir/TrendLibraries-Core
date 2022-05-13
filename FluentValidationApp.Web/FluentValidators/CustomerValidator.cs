@@ -5,11 +5,18 @@ namespace FluentValidationApp.Web.FluentValidators
 {
     public class CustomerValidator:AbstractValidator<Customer>
     {
+        public string NotEmptyMsg = "{PropertyName} can not be empty";
         public CustomerValidator()
         {
-            RuleFor(x => x.Name).NotEmpty().WithMessage("Name can not be empty");
-            RuleFor(x => x.Email).NotEmpty().WithMessage("Email can not be empty").EmailAddress().WithMessage("Email is not correct");
-            RuleFor(x => x.Age).NotEmpty().WithMessage("Age can not be empty").InclusiveBetween(18, 60).WithMessage("Age must between 18-60");
+          
+        RuleFor(x => x.Name).NotEmpty().WithMessage(NotEmptyMsg);
+            RuleFor(x => x.Email).NotEmpty().WithMessage(NotEmptyMsg).EmailAddress().WithMessage("Email is not correct");
+            RuleFor(x => x.Age).NotEmpty().WithMessage(NotEmptyMsg).InclusiveBetween(18, 60).WithMessage("Age must between 18-60");
+
+            RuleFor(x => x.BirthDay).NotEmpty().WithMessage(NotEmptyMsg).Must(x =>
+            {
+                return DateTime.Now.AddYears(-18) >= x;
+            }).WithMessage("Your age must be grater than 18");
         }
     }
 }
