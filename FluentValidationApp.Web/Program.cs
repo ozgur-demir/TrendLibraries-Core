@@ -1,5 +1,6 @@
 using FluentValidation.AspNetCore;
 using FluentValidationApp.Web.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -18,7 +19,10 @@ builder.Services.AddDbContext<AppDbContext>(x => {
 
     });
 });
-
+builder.Services.Configure<ApiBehaviorOptions>(opt =>
+{
+    opt.SuppressModelStateInvalidFilter = true;
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
