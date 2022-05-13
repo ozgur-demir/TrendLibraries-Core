@@ -17,6 +17,8 @@ namespace FluentValidationApp.Web.FluentValidators
             {
                 return DateTime.Now.AddYears(-18) >= x;
             }).WithMessage("Your age must be grater than 18");
+
+            RuleForEach(x => x.Addresses).SetValidator(new AddressValidator());
         }
     }
 }

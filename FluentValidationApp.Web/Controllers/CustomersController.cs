@@ -6,16 +6,18 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FluentValidationApp.Web.Models;
+using FluentValidation;
 
 namespace FluentValidationApp.Web.Controllers
 {
     public class CustomersController : Controller
     {
         private readonly AppDbContext _context;
-
-        public CustomersController(AppDbContext context)
+        private readonly IValidator<Customer> _validator; // for manual validation
+        public CustomersController(AppDbContext context, IValidator<Customer> validator)
         {
             _context = context;
+            _validator = validator;
         }
 
         // GET: Customers
