@@ -23,6 +23,7 @@ builder.Services.Configure<ApiBehaviorOptions>(opt =>
 {
     opt.SuppressModelStateInvalidFilter = true;
 });
+builder.Services.AddAutoMapper(typeof(Program)); //Automapper added as Service
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

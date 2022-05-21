@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using FluentValidationApp.Web.Models;
 using FluentValidation;
+using AutoMapper;
+using FluentValidationApp.Web.DTOs;
 
 namespace FluentValidationApp.Web.Controllers
 {
@@ -16,17 +18,36 @@ namespace FluentValidationApp.Web.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IValidator<Customer> _customerValidator;
-        public CustomersApiController(AppDbContext context, IValidator<Customer> customerValidator)
+        private readonly IMapper _mapper;
+        public CustomersApiController(AppDbContext context, IValidator<Customer> customerValidator, IMapper mapper)
         {
             _context = context;
             _customerValidator = customerValidator;
+            _mapper = mapper;
         }
 
         // GET: api/CustomersApi
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Customer>>> GetCustomers()
+        public async Task<ActionResult<IEnumerable<CustomerDto>>> GetCustomers()
         {
-            return await _context.Customers.ToListAsync();
+            /* Json result before mapping
+                   [{"id": 1,
+                    "name": "Özd",
+                    "email": "ldasld",
+                    "age": 24,
+                    "birthDay": "0001-01-01T00:00:00",
+                    "addresses": null,
+                    "gender": 0}]
+            */
+             
+            List<Customer> customers = await _context.Customers.ToListAsync();
+            return _mapper.Map<List<CustomerDto>>(customers);
+            /* Json result after mapping
+                       [{"id": 1,
+                        "name": "Özd",
+                        "email": "ldasld",
+                        "age": 24}]
+                */
         }
 
         // GET: api/CustomersApi/5
