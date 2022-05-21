@@ -12,7 +12,11 @@ namespace RateLimit.API.Controllers
         {
             return Ok(new { Id = 1, Name = "Pencil", Price = 20 });
         }
-
+        [HttpGet("{name}")]
+        public IActionResult GetProduct(string name)
+        {
+            return Ok(new { Id = 1, Name = name, Price = 20 });
+        }
         [HttpPut]
         public IActionResult UpdateProduct()
         {
