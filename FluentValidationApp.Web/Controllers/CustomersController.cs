@@ -19,7 +19,6 @@ namespace FluentValidationApp.Web.Controllers
             _context = context;
             _validator = validator;
         }
-
         // GET: Customers
         public async Task<IActionResult> Index()
         {
