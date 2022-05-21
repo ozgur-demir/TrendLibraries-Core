@@ -9,5 +9,7 @@
         public string FullInfo { get; set; }
         public string FullInfoManual { get; set; }
 
+        public string CreditCardNumber { get; set; }
+        public DateTime CreditCardValidDate { get; set; }
     }
 }

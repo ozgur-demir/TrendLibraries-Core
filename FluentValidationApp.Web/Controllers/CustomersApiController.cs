@@ -29,7 +29,7 @@ namespace FluentValidationApp.Web.Controllers
         [HttpGet]
         public IActionResult MappingExample()
         {
-            Customer customer = new Customer { Name = "Ozgur", Email = "info@csyolu.com", Age = 25 };
+            Customer customer = new Customer { Name = "Ozgur", Email = "info@csyolu.com", Age = 25,CreditCard = new CreditCard {Number="123123132",ValidDate=DateTime.Now } };
 
             return Ok(_mapper.Map<CustomerDto>(customer)); //json result:{"id":0,"isim":"Ozgur","eposta":"info@csyolu.com","yas":25,"fullInfo":"Ozgur-info@csyolu.com-25"}
         }
