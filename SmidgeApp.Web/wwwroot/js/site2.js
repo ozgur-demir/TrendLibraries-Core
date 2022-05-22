@@ -1,3 +1,3 @@
-﻿function myfunction2(a, b) {
-    return a + b;
+﻿function myfunction2(a, bc) {
+    return a + bc;
 }

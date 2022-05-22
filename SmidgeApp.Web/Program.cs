@@ -1,4 +1,7 @@
 using Smidge;
+using Smidge.Cache;
+using Smidge.Options;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -26,7 +29,8 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.UseSmidge(bundle =>
 {
-    bundle.CreateJs("my-js-bundle", "~/js/site.js", "~/js/site2.js");
+    bundle.CreateJs("my-js-bundle", "~/js/site.js", "~/js/site2.js").WithEnvironmentOptions(BundleEnvironmentOptions.Create().ForDebug(builder => builder.EnableCompositeProcessing().EnableFileWatcher()
+    .SetCacheBusterType<AppDomainLifetimeCacheBuster>().CacheControlOptions(enableEtag: false, cacheControlMaxAge: 0)).Build());
     bundle.CreateCss("my-css-bundle", "~/css/site.css", "~/lib/bootstrap/dist/css/bootstrap.min.css");
 });
 app.Run();
