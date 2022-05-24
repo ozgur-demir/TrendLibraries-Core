@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ErrorHandling.Web.Controllers
 {
-    [CustomHandleExceptionFilterAttribute(ErrorPage = "Error2")]
+    
     public class ProductController : Controller
     {
         public IActionResult Index()
