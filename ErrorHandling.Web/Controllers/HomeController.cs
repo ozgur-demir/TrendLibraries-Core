@@ -15,6 +15,7 @@ namespace ErrorHandling.Web.Controllers
 
         public IActionResult Index()
         {
+            throw new NotImplementedException(); //For test
             return View();
         }
 
