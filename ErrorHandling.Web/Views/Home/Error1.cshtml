@@ -1,0 +1,10 @@
+﻿@{
+    Exception ex = ViewData["Exception"] as Exception;
+}
+@{
+    ViewData["Title"] = "Error1";
+}
+
+<h1>Error1</h1>
+<h2>Error Msg: @ex.Message</h2>
+

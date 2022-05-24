@@ -1,4 +1,5 @@
-﻿using ErrorHandling.Web.Models;
+﻿using ErrorHandling.Web.Filter;
+using ErrorHandling.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -12,7 +13,7 @@ namespace ErrorHandling.Web.Controllers
         {
             _logger = logger;
         }
-
+        [CustomHandleExceptionFilterAttribute]
         public IActionResult Index()
         {
             throw new NotImplementedException(); //For test
@@ -28,6 +29,15 @@ namespace ErrorHandling.Web.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult Error1()
+        {
+            return View();
+        }
+        public IActionResult Error2()
+        {
+            return View();
         }
     }
 }
