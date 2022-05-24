@@ -13,7 +13,7 @@ namespace ErrorHandling.Web.Controllers
         {
             _logger = logger;
         }
-        [CustomHandleExceptionFilterAttribute]
+        [CustomHandleExceptionFilterAttribute(ErrorPage ="Error1")]
         public IActionResult Index()
         {
             throw new NotImplementedException(); //For test
