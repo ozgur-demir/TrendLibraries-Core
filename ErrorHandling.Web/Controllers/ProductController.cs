@@ -11,9 +11,6 @@ namespace ErrorHandling.Web.Controllers
             throw new FileNotFoundException();
             return View();
         }
-        public IActionResult Error2()
-        {
-            return View();
-        }
+
     }
 }
