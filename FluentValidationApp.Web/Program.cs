@@ -1,9 +1,11 @@
 using FluentValidationApp.Web.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Logging.ClearProviders();
+builder.Logging.AddDebug();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(x => {
@@ -16,7 +18,7 @@ builder.Services.AddDbContext<AppDbContext>(x => {
 });
 
 var app = builder.Build();
-
+app.Services.GetRequiredService<ILogger<Program>>().LogInformation("Custom log in Programcs");
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
