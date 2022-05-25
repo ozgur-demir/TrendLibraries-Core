@@ -15,6 +15,13 @@ namespace FluentValidationApp.Web.Controllers
 
         public IActionResult Index()
         {
+            _logger.LogTrace("Index Page Log Example");
+            _logger.LogDebug("Index Page Log Example");
+            _logger.LogInformation("Index Page Log Example");
+            _logger.LogWarning("Index Page Log Example");
+            _logger.LogError("Index Page Log Example");
+            _logger.LogCritical("Index Page Log Example");
+
             return View();
         }
 

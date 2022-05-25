@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Logging.ClearProviders();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(x => {
@@ -14,6 +14,7 @@ builder.Services.AddDbContext<AppDbContext>(x => {
 
     });
 });
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
