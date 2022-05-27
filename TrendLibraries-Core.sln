@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrendLibsApp.Web", "FluentValidationApp.Web\TrendLibsApp.Web.csproj", "{FE28FDF1-2190-40A9-AE9C-D4B1731B910F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggingNLogLib", "LoggingNLogLib\LoggingNLogLib.csproj", "{BFAFCCA8-9125-4225-AFF0-302FD0FB4197}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{FE28FDF1-2190-40A9-AE9C-D4B1731B910F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE28FDF1-2190-40A9-AE9C-D4B1731B910F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE28FDF1-2190-40A9-AE9C-D4B1731B910F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFAFCCA8-9125-4225-AFF0-302FD0FB4197}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFAFCCA8-9125-4225-AFF0-302FD0FB4197}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFAFCCA8-9125-4225-AFF0-302FD0FB4197}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFAFCCA8-9125-4225-AFF0-302FD0FB4197}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
