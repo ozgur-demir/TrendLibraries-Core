@@ -7,7 +7,7 @@ namespace LoggingNLogLib.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+      
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -15,6 +15,7 @@ namespace LoggingNLogLib.Controllers
 
         public IActionResult Index()
         {
+            _logger.LogInformation("Index page loaded");
             return View();
         }
 
