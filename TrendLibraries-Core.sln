@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrendLibsApp.Web", "FluentValidationApp.Web\TrendLibsApp.Web.csproj", "{FE28FDF1-2190-40A9-AE9C-D4B1731B910F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swagger.API", "Swagger.API\Swagger.API.csproj", "{FA6EFAEB-A972-4154-B239-943C4EA360A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{FE28FDF1-2190-40A9-AE9C-D4B1731B910F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE28FDF1-2190-40A9-AE9C-D4B1731B910F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE28FDF1-2190-40A9-AE9C-D4B1731B910F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA6EFAEB-A972-4154-B239-943C4EA360A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA6EFAEB-A972-4154-B239-943C4EA360A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA6EFAEB-A972-4154-B239-943C4EA360A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA6EFAEB-A972-4154-B239-943C4EA360A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
