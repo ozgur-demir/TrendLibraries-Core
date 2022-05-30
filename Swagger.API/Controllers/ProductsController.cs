@@ -20,7 +20,16 @@ namespace Swagger.API.Controllers
             _context = context;
         }
 
+
+        /// <summary>
+        /// This endpoint returns list of all Products
+        /// </summary>
+        /// <remarks>
+        /// example: https://example.com/api/Products
+        /// </remarks>
+        /// <returns></returns>
         // GET: api/Products
+        [Produces("application/json")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
@@ -31,7 +40,14 @@ namespace Swagger.API.Controllers
             return await _context.Products.ToListAsync();
         }
 
+        /// <summary>
+        /// This end point returns product via ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <response code="404"> Product not found</response>
         // GET: api/Products/5
+        [Produces("application/json")]
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
@@ -49,6 +65,15 @@ namespace Swagger.API.Controllers
             return product;
         }
 
+        /// <summary>
+        /// This endpoint adds Product.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <param name="id"></param>
+        /// <param name="product"></param>
+        /// <returns></returns>
         // PUT: api/Products/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
@@ -79,6 +104,8 @@ namespace Swagger.API.Controllers
 
             return NoContent();
         }
+
+
 
         // POST: api/Products
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
